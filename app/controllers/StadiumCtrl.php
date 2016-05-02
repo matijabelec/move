@@ -20,12 +20,19 @@ class StadiumCtrl extends Controller
             ]);
 	}
         
-        public function stadium(ViewFactory $view)
+        public function create(ViewFactory $view)
 	{
-            $stadium = new Stadium();
-            $stadium->name = 'Slaven Belupo\'s stadium';
-            $stadium->place = 'Koprivnica';
-            $stadium->save();
+            if($this->request->method() == 'POST') {
+                $stadium = new Stadium();
+                $validator = $this->validator->create($this->request->post(), $stadium->getValidationRules() );
+                if($validator->isValid() ) {
+                    $stadium->name = $this->request->post('name');
+                    $stadium->place = $this->request->post('place');
+                    $stadium->save();
+                    return $this->response->redirect($this->urlBuilder->toRoute('stadium_details', ['id' => $stadium->id]) );
+                }
+            }
+            return $view->create('stadium.stadium');
 	}
         
         public function details(ViewFactory $view, $id)
