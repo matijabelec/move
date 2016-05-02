@@ -10,7 +10,7 @@ return
 	 * Default configuration to use.
 	 */
 
-	'default' => 'test',
+	'default' => 'default',
 
 	/**
 	 * ---------------------------------------------------------
@@ -30,6 +30,20 @@ return
 
 	'configurations' =>
 	[
+                'default' =>
+		[
+			'dsn'         => 'mysql:dbname=movedb;host=localhost;port=3306',
+			'username'    => 'movedbu',
+			'password'    => 'movedbpw',
+			'persistent'  => false,
+			'log_queries' => false,
+			'reconnect'   => false,
+			'queries'     =>
+			[
+				"SET NAMES UTF8",
+			],
+		],
+                
 		'test' =>
 		[
 			'dsn'         => 'mysql:dbname=test;host=localhost;port=3306',
