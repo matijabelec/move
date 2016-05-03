@@ -1,5 +1,11 @@
-<h1>Stadium</h1>
+{% extends:'_layouts.crud-form' %}
 
-<p>{{$stadium->id}}</p>
-<p>{{$stadium->name}}</p>
-<p>{{$stadium->place}}</p>
+{% block:page_title %}Stadium{% endblock %}
+
+{% block:form %}
+    <div>
+        <p>{{$stadium->id}}</p>
+        <p>{{$stadium->name}}</p>
+        <p>{{$stadium->place}}</p>
+    </div>
+{% endblock %}

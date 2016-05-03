@@ -1,7 +1,11 @@
-<h1>New stadium</h1>
+{% extends:'_layouts.crud-form' %}
 
-<form method="POST" action="">
-    <input type="text" name="name" value=""/>
-    <input type="text" name="place" value=""/>
-    <input type="submit" value="Create">
-</form>
+{% block:page_title %}New stadium{% endblock %}
+
+{% block:form %}
+    <form method="POST" action="">
+        <input type="text" name="name" value=""/>
+        <input type="text" name="place" value=""/>
+        <input type="submit" value="Create">
+    </form>
+{% endblock %}
